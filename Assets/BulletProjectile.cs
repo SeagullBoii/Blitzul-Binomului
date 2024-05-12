@@ -15,7 +15,7 @@ public class BulletProjectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bulletRigidbody.linearVelocity = transform.forward * bulletSpeed;
+        bulletRigidbody.velocity = transform.forward * bulletSpeed;
     }
 
     private void OnTriggerEnter(Collider other)
