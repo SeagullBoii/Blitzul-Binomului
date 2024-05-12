@@ -40,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+
         grounded = Physics.CheckSphere(groundCheck.position, groundRadius, groundMask); //O sfera la picioarele jucatorului care verifica daca e in aer sau nu.
         
         //Movementul in sine
