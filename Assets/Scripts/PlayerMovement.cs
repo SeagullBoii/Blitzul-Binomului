@@ -1,5 +1,6 @@
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
@@ -13,11 +14,14 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Camera")]
     [SerializeField] Transform camTilt;
+    [SerializeField] Animator weaponAnimator;
 
     [Header("Ground Check")]
     [SerializeField] Transform groundCheck;
     [SerializeField] float groundRadius = 0.4f;
     [SerializeField] LayerMask groundMask;
+
+    public float movementSpeed { private set; get; }
 
     float coyoteTimer = 0;
     float timeSinceJump = 0;
@@ -40,14 +44,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-
         grounded = Physics.CheckSphere(groundCheck.position, groundRadius, groundMask); //O sfera la picioarele jucatorului care verifica daca e in aer sau nu.
         
         //Movementul in sine
         float xInput = Input.GetAxis("Horizontal"); // A si D
         float yInput = Input.GetAxis("Vertical"); //W si S
 
+
         Vector3 movementVector = transform.right * xInput + transform.forward * yInput;
+        movementSpeed = movementVector.magnitude; //Pentru arme.
 
         controller.Move(movementVector * speed * Time.deltaTime); //Utilizam movementul prebuilt de character controller
 
@@ -71,6 +76,8 @@ public class PlayerMovement : MonoBehaviour
 
         //Coyote Time si Jump Cooldown
         Timers();
+
+        WalkAnimation();
     }
 
     private void Gravity() {
@@ -93,6 +100,20 @@ public class PlayerMovement : MonoBehaviour
                 velocity.y = Mathf.Sqrt(-2f * jumpHeight * GRAV_ACCEL);
                 jumpCD = jumpCooldown;
             }
+    }
+
+    /// <summary>
+    /// Schimbam viteza mainii in functie de mers.
+    /// Daca e in aer, nu tremura mana asa de mult.
+    /// </summary>
+    float walkAnimSpeed;
+    private void WalkAnimation() {
+        if (controller.isGrounded)  
+            walkAnimSpeed = movementSpeed; 
+        else     
+            walkAnimSpeed = 0f;  
+
+        weaponAnimator.SetFloat("Speed", walkAnimSpeed);
     }
 
     /// <summary>
