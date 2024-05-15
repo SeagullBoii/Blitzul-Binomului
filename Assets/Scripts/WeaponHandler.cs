@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class WeaponHandler : MonoBehaviour
 {
+    [SerializeField] LayerMask collideWithRay;
     [SerializeField] Weapon[] weapons;
     [SerializeField] Animator weaponAnimator;
     [SerializeField] SpriteRenderer spriteRenderer;
@@ -18,12 +19,8 @@ public class WeaponHandler : MonoBehaviour
             if (SaveData.unlockedWeapons[i])
                 firstUnlockedWeapon = i;
 
-
-
-
         if (firstUnlockedWeapon >= 0)
             Equip(firstUnlockedWeapon);
-
     }
 
     private void Update()
@@ -44,12 +41,7 @@ public class WeaponHandler : MonoBehaviour
             if (Input.GetButton("Fire1"))
             {
                 weaponAnimator.Play("Attack");
-                switch (currentWeaponIndex)
-                {
-
-                    case 0: SwingSword(); break;
-                    case 2: ThrowProtractor(); break;
-                }
+                attackCD = weapons[currentWeaponIndex].firingSpeed;
             }
         }
     }
@@ -74,7 +66,21 @@ public class WeaponHandler : MonoBehaviour
     }
     private void ThrowProtractor()
     {
-        attackCD = weapons[1].firingSpeed;
+        attackCD = 0.5f;
+        GameObject projectile = Instantiate(protractorProjectile);
+        projectile.transform.position = transform.position;
+        if (projectile.GetComponent<Rigidbody>())
+            projectile.GetComponent<Rigidbody>().AddForce(ProjectileDirection(transform.position) * 2500);
+        Destroy(projectile, 2.5f);
+    }
+
+    private Vector3 ProjectileDirection(Vector3 shootPosition)
+    {
+        RaycastHit hit = new RaycastHit();
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, 1000, collideWithRay))
+            return (hit.point - shootPosition).normalized;    
+
+        return (Camera.main.transform.forward * 1000 - shootPosition).normalized;
     }
 
     private void Timers()

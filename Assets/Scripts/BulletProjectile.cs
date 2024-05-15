@@ -4,16 +4,10 @@ using UnityEngine;
 
 public class BulletProjectile : MonoBehaviour
 {
-    public float bulletSpeed;
-    public Rigidbody bulletRigidbody;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]public float bulletSpeed;
+    [SerializeField] Rigidbody bulletRigidbody;
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         bulletRigidbody.linearVelocity = transform.forward * bulletSpeed;
     }

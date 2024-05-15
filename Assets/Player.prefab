@@ -44,6 +44,8 @@ GameObject:
   - component: {fileID: 4898175355163161243}
   - component: {fileID: 4706135271676146389}
   - component: {fileID: 8583030742430588053}
+  - component: {fileID: 8503666184606829640}
+  - component: {fileID: 660849986986260395}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -147,6 +149,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handler: {fileID: 5964669219604493659}
+--- !u!114 &8503666184606829640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974271489137794274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d637c44e6b7c5747a45ed47bf575537, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 2
+  doorLayer:
+    serializedVersion: 2
+    m_Bits: 64
+--- !u!114 &660849986986260395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974271489137794274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6ac222c0925a6841954b8aa0e7deab8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1766981137268777425
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,7 +346,7 @@ MonoBehaviour:
   m_RendererIndex: -1
   m_VolumeLayerMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 256
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 1
@@ -414,7 +444,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 247
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -491,7 +521,7 @@ GameObject:
   - component: {fileID: 1597003513933256216}
   - component: {fileID: 328246165703567447}
   - component: {fileID: 5964669219604493659}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
