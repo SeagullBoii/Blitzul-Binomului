@@ -4,14 +4,8 @@ using UnityEngine;
 
 public class BulletProjectile : MonoBehaviour
 {
-    [SerializeField]public float bulletSpeed;
-    [SerializeField] Rigidbody bulletRigidbody;
-
-    private void Update()
-    {
-        bulletRigidbody.linearVelocity = transform.forward * bulletSpeed;
-    }
-
+    [SerializeField] public float damage;
+    
     private void OnTriggerEnter(Collider other)
     {
         Destroy(gameObject);

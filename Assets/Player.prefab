@@ -161,7 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d637c44e6b7c5747a45ed47bf575537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 2
+  range: 5
   doorLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -314,7 +314,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 256
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -632,6 +632,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c17ff86f16c4e4fac2b1fa2c73dc89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collideWithRay:
+    serializedVersion: 2
+    m_Bits: 0
   weapons:
   - {fileID: 11400000, guid: be599899c9ef3ec4e8f0eb896ea8c2d9, type: 2}
   - {fileID: 11400000, guid: 2a73acd688b1eb74b93de1c9b0d05cf4, type: 2}
@@ -639,7 +642,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d9bba843e0370924691f1d65623a9351, type: 2}
   weaponAnimator: {fileID: 1597003513933256216}
   spriteRenderer: {fileID: 328246165703567447}
-  protractorProjectile: {fileID: 0}
+  protractorProjectile: {fileID: 1103819231297573472, guid: 3c9f62a389958864cbc38b51d4f22b06, type: 3}
 --- !u!1 &6922493048850405637
 GameObject:
   m_ObjectHideFlags: 0

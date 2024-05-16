@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 8997044575454947969}
   - component: {fileID: 9180487550806333143}
   - component: {fileID: 2427347610833011100}
-  - component: {fileID: 5785243558749069018}
   - component: {fileID: 4777994919469421068}
   - component: {fileID: 3393886563785667759}
+  - component: {fileID: -5342197188940142214}
   m_Layer: 0
   m_Name: ProtractorProjectile
   m_TagString: Untagged
@@ -85,20 +85,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!114 &5785243558749069018
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1103819231297573472}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c8489bc69ed8304785a1c34e7e96592, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletSpeed: 30
-  bulletRigidbody: {fileID: 2427347610833011100}
 --- !u!212 &4777994919469421068
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -169,6 +155,19 @@ MonoBehaviour:
   spriteRenderer: {fileID: 4777994919469421068}
   directions: 0
   animator: {fileID: 0}
+--- !u!114 &-5342197188940142214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1103819231297573472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c8489bc69ed8304785a1c34e7e96592, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 5
 --- !u!1 &4974936960597004355
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,20 +256,20 @@ TrailRenderer:
       - serializedVersion: 3
         time: 0
         value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
+        inSlope: -1
+        outSlope: -1
+        tangentMode: 34
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1
         value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
+        inSlope: -1
+        outSlope: -1
+        tangentMode: 34
         weightedMode: 0
-        inWeight: 0
+        inWeight: 0.33333334
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -342,7 +341,7 @@ Transform:
   m_GameObject: {fileID: 6348949552979134848}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0.16}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

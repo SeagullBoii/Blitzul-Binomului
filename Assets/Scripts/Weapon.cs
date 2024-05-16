@@ -4,7 +4,6 @@ using UnityEngine;
 public class Weapon : ScriptableObject
 {
     [SerializeField] public float damage;
-    [SerializeField] public float projectileSpeed;
     [SerializeField] public float firingSpeed;
     [SerializeField] public WeaponType type;
 }

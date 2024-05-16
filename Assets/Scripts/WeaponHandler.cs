@@ -6,6 +6,7 @@ public class WeaponHandler : MonoBehaviour
     [SerializeField] Weapon[] weapons;
     [SerializeField] Animator weaponAnimator;
     [SerializeField] SpriteRenderer spriteRenderer;
+    [SerializeField] Transform shootPos;
     [Header("Projectiles")]
     [SerializeField] GameObject protractorProjectile;
 
@@ -64,13 +65,14 @@ public class WeaponHandler : MonoBehaviour
     {
         attackCD = weapons[0].firingSpeed;
     }
+
     private void ThrowProtractor()
     {
         attackCD = 0.5f;
         GameObject projectile = Instantiate(protractorProjectile);
-        projectile.transform.position = transform.position;
+        projectile.transform.position = shootPos.position;
         if (projectile.GetComponent<Rigidbody>())
-            projectile.GetComponent<Rigidbody>().AddForce(ProjectileDirection(transform.position) * 2500);
+            projectile.GetComponent<Rigidbody>().AddForce(ProjectileDirection(shootPos.position) * 2500);
         Destroy(projectile, 2.5f);
     }
 

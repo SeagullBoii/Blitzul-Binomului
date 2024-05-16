@@ -5,7 +5,7 @@ public class DoorOpener : MonoBehaviour
 {
     [SerializeField] float range = 0.3f;
     [SerializeField] LayerMask doorLayer;
-
+    [SerializeField] Animator canvasAnimator;
     Inventory inv;
 
     private void Start()
@@ -31,7 +31,7 @@ public class DoorOpener : MonoBehaviour
         {
             if (hitInfo.collider.gameObject.TryGetComponent<Door>(out Door door))
                 if (!door.GetOpen())
-                     door.Open(inv);
+                     door.Open(inv, canvasAnimator);
 
         }
     }

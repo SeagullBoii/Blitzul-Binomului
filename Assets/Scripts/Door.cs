@@ -15,15 +15,27 @@ public class Door : MonoBehaviour
         anim.SetTrigger("Open");
         open=true;
     }
-    public void Open(Inventory inv)
+    public void Open(Inventory inv, Animator canvasAnimator)
     {
         if (key > -1 && inv.IsKeyUnlocked(key) || key <= -1)
         {
             anim.SetTrigger("Open");
             open = true;
         }
-        else 
-            Debug.Log("Needs Key: " + key);
+        else
+        {
+            switch (key) {
+                case 0:
+                    canvasAnimator.Play("BlueFlash");
+                    break;
+                case 1:
+                    canvasAnimator.Play("YellowFlash");
+                    break;
+                case 2:
+                    canvasAnimator.Play("RedFlash");
+                    break;
+            }
+        }
     }
 
     public bool GetOpen() {
