@@ -634,7 +634,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collideWithRay:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 65
   weapons:
   - {fileID: 11400000, guid: be599899c9ef3ec4e8f0eb896ea8c2d9, type: 2}
   - {fileID: 11400000, guid: 2a73acd688b1eb74b93de1c9b0d05cf4, type: 2}
